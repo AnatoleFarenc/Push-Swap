@@ -1,7 +1,7 @@
 
 CC = cc
 SRC_DIR = srcs
-SRC = main.c parse_input.c push_swap_utils.c stack_option.c a_operation.c b_operation.c a_b_operation.c
+SRC = main.c parse_input.c push_swap_utils.c stack_option.c a_operation.c b_operation.c a_b_operation.c movment_stack.c lis.c push_swap.c movement_stack_2.c
 OBJ_DIR = objs
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC))
 OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))

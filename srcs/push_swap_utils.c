@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:05:31 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/11 12:45:51 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/16 15:22:45 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,11 @@ int	ft_atoi_push_swap(const char *str, char **str_array, int *arr, int int_max)
 		res = res * 10 + (str[i++] - '0');
 	}
 	return (res * sign);
+}
+
+int	ft_abs(int nb)
+{
+	if (nb < 0)
+		return (nb *= -1);
+	return (nb);
 }
