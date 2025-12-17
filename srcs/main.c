@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:30:12 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/17 07:34:23 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:46:01 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,9 @@ int main(int  arc, char **arv)
 	i = len;
 	while (i--)
 		push_on_stack(&a, values[i]);
-	
 	sort_a_stack(&a, &b);
-	
-	print_stack(a, b);
-	ft_printf("\n");
 	replace_value_in_stack(&a, &b);
-	ft_printf("\n");
-	print_stack(a, b);
-	
+	min_to_top(&a);
     free(a.array);
     free(b.array);
 	free(values);

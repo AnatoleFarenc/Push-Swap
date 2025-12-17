@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 08:22:00 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/16 19:48:33 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 18:11:02 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,31 @@ t_movement cost_b(t_stack b, int index)
 int	search_good_place(t_stack a, int value)
 {
 	int	i;
+	int	next_value;
+	int	min;
 
-	i = a.top;
-	while (i-- > 0)
+	i = -1;
+	min = a.array[0];
+	next_value = value;
+	while (++i <= a.top)
 	{
-		if (value < a.array[i])
-			break;
+		if (a.array[i] > next_value)
+			next_value = a.array[i];
+		if (a.array[i] < min)
+			min = a.array[i];
 	}
-	return (a.array[i]);
+	if (next_value == value)
+		return (min);
+	i = -1;
+	while (++i <= a.top)
+	{
+		if (a.array[i] > value)
+		{
+			if (a.array[i] - value < next_value - value)
+				next_value = a.array[i];
+		}
+	}
+	return (next_value);
 }
 
 t_movement calc_move_a(t_stack a, int value_b)
@@ -76,7 +93,7 @@ int	get_index(t_stack stack, int value)
 	if (stack_is_empty(&stack))
 		return (0);
 	i = -1;
-	while (++i < stack.top + 1)
+	while (++i <= stack.top)
 	{
 		if (stack.array[i] == value)
 			return (i);

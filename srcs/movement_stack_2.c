@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:31:36 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/17 14:33:10 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:57:12 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	optimize_cost(t_movement move_a, t_movement move_b)
 {
 	if ((move_a.mov == RA && move_b.mov == RB) || (move_a.mov == RRA && move_b.mov == RRB))
 	{
-		if (move_a.nb_ite > move_b.nb_ite)
+		if (move_a.nb_ite >= move_b.nb_ite)
 			return (move_a.nb_ite);
 		else
 			return (move_b.nb_ite);
@@ -35,7 +35,7 @@ int	best_move(t_stack a, t_stack b)
 	i = -1;
 	index = b.top;
 	cost = b.len;
-	while (++i < b.top)
+	while (++i <= b.top)
 	{
 		move_b = cost_b(b, i);	
 		move_a = calc_move_a(a, b.array[i]);
@@ -49,7 +49,6 @@ int	best_move(t_stack a, t_stack b)
 }
 void	play_move(t_stack * a, t_stack *b, t_movement move_a, t_movement move_b)
 {
-	int	count;
 
 	if ((move_a.mov == RA && move_b.mov == RB) || (move_a.mov == RRA && move_b.mov == RRB))
 	{
@@ -72,20 +71,21 @@ void	play_move(t_stack * a, t_stack *b, t_movement move_a, t_movement move_b)
 			}
 		}
 	}
-	count = move_a.nb_ite;
-	if (move_a.nb_ite < move_b.nb_ite)
-		count = move_b.nb_ite;
-	while (count)
+	while (move_a.nb_ite)
 	{
-		if (move_a.nb_ite == RA)
+		if (move_a.mov == RA)
 			ft_printf("%s\n", ra(a));
-		if (move_a.nb_ite == RRA)
+		if (move_a.mov == RRA)
 			ft_printf("%s\n", rra(a));
-		if (move_b.nb_ite == RB)
-			ft_printf("%s\n", rb(a));
-		if (move_b.nb_ite == RRB)
-			ft_printf("%s\n", rrb(a));
-		count--;
+		move_a.nb_ite--;
+	}
+	while (move_b.nb_ite)
+	{
+		if (move_b.mov == RB)
+			ft_printf("%s\n", rb(b));
+		if (move_b.mov == RRB)
+			ft_printf("%s\n", rrb(b));
+		move_b.nb_ite--;
 	}
 }
 
@@ -101,6 +101,6 @@ void	replace_value_in_stack(t_stack *a, t_stack *b)
 		move_a = calc_move_a(*a, b->array[index]);
 		move_b = cost_b(*b, index);
 		play_move(a, b, move_a, move_b);
-		ft_printf("%s\n", pa(a, b));				
+		ft_printf("%s\n", pa(a, b));		
 	}
 }

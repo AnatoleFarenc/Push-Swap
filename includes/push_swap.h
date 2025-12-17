@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:34:24 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/17 07:34:15 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 17:25:42 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	search_good_place(t_stack a, int value);
 int	get_index(t_stack stack, int value);
 t_movement calc_move_a(t_stack a, int value_b);
 void	replace_value_in_stack(t_stack *a, t_stack *b);
+void	min_to_top(t_stack *a);
 
 //list
 void	calc_lis(t_stack a, int	*len, int *parrent);
