@@ -6,75 +6,101 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 15:31:36 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/16 19:47:20 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 14:33:10 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	calc_cost (t_movement a, t_movement b)
+int	optimize_cost(t_movement move_a, t_movement move_b)
 {
-	if ((a.mov == RA && b.mov == RB) || (a.mov == RRA && b.mov == RRB))
+	if ((move_a.mov == RA && move_b.mov == RB) || (move_a.mov == RRA && move_b.mov == RRB))
 	{
-		if (a.nb_ite > b.nb_ite)
-			return (a.nb_ite);
-		return (b.nb_ite);
+		if (move_a.nb_ite > move_b.nb_ite)
+			return (move_a.nb_ite);
+		else
+			return (move_b.nb_ite);
 	}
-	return (a.nb_ite + b.nb_ite);
+	return (move_a.nb_ite + move_b.nb_ite);
 }
 
-void	play_mod(t_stack s_a, t_stack s_b, t_movement a, t_movement b)
+int	best_move(t_stack a, t_stack b)
 {
-	if ((a.mov == RA && b.mov == RB) || (a.mov == RRA && b.mov == RRB))
+	int			index;
+	int			cost;
+	t_movement	move_b;
+	t_movement	move_a;
+	int			i;
+
+	i = -1;
+	index = b.top;
+	cost = b.len;
+	while (++i < b.top)
 	{
-		while (a.nb_ite && b.nb_ite)
+		move_b = cost_b(b, i);	
+		move_a = calc_move_a(a, b.array[i]);
+		if (cost > optimize_cost(move_a, move_b))
 		{
-			if (a.mov == RA)
-				ft_printf("%s\n", rr(&s_a, &s_b));
-			if (a.mov == RRA)
-				ft_printf("%s\n", rrr(&s_a, &s_b));
-			a.nb_ite--;
-			b.nb_ite--;
+			cost = optimize_cost(move_a, move_b);
+			index = i;
 		}
 	}
-	while (a.nb_ite)
-	{
-		if (a.mov == RA)
-			ft_printf("%s\n", ra(&s_a));
-		if (a.mov == RRA)
-			ft_printf("%s\n", rra(&s_a));
-		a.nb_ite--;
-	}
-	while(b.nb_ite)
-	{
-		if (b.mov == RB)
-			ft_printf("%s\n", rb(&s_b));
-		if (b.mov == RRB)
-			ft_printf("%s\n", rb(&s_b));
-		b.nb_ite--;
-	}
+	return (index);
 }
-
-void	replace_value_on_stack(t_stack a, t_stack b)
+void	play_move(t_stack * a, t_stack *b, t_movement move_a, t_movement move_b)
 {
-	int	j;
-	int	cost;
-	int	index;
+	int	count;
 
-	while (!stack_is_empty(&b))
+	if ((move_a.mov == RA && move_b.mov == RB) || (move_a.mov == RRA && move_b.mov == RRB))
 	{
-		cost = b.len;
-		index = b.top;
-		j = -1;
-		while (++j < b.top)
+		if (move_a.mov == RA)
 		{
-			if (cost > calc_cost(calc_move_a(a, b.array[j]), cost_b(b, j)))
+			while (move_a.nb_ite && move_b.nb_ite)
 			{
-				cost = calc_cost(calc_move_a(a, b.array[j]), cost_b(b, j));
-				index = j;
-			}		
+				ft_printf("%s\n", rr(a,b));
+				move_a.nb_ite--;
+				move_b.nb_ite--;
+			}
 		}
-		play_mod(a, b, calc_move_a(a, b.array[index]), cost_b(b, index));
-		ft_printf("%s\n", pa(&a, &b));
+		if (move_a.mov == RRA)
+		{
+			while (move_a.nb_ite && move_b.nb_ite)
+			{
+				ft_printf("%s\n", rrr(a,b));
+				move_a.nb_ite--;
+				move_b.nb_ite--;
+			}
+		}
+	}
+	count = move_a.nb_ite;
+	if (move_a.nb_ite < move_b.nb_ite)
+		count = move_b.nb_ite;
+	while (count)
+	{
+		if (move_a.nb_ite == RA)
+			ft_printf("%s\n", ra(a));
+		if (move_a.nb_ite == RRA)
+			ft_printf("%s\n", rra(a));
+		if (move_b.nb_ite == RB)
+			ft_printf("%s\n", rb(a));
+		if (move_b.nb_ite == RRB)
+			ft_printf("%s\n", rrb(a));
+		count--;
+	}
+}
+
+void	replace_value_in_stack(t_stack *a, t_stack *b)
+{
+	t_movement	move_a;
+	t_movement	move_b;
+	int			index;
+	
+	while (!stack_is_empty(b))
+	{
+		index = best_move(*a, *b);
+		move_a = calc_move_a(*a, b->array[index]);
+		move_b = cost_b(*b, index);
+		play_move(a, b, move_a, move_b);
+		ft_printf("%s\n", pa(a, b));				
 	}
 }

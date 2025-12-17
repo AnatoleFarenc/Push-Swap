@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:34:24 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/16 19:32:22 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 07:34:15 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_movement cost_b(t_stack b, int index);
 int	search_good_place(t_stack a, int value);
 int	get_index(t_stack stack, int value);
 t_movement calc_move_a(t_stack a, int value_b);
-void	replace_value_on_stack(t_stack a, t_stack b);
+void	replace_value_in_stack(t_stack *a, t_stack *b);
 
 //list
 void	calc_lis(t_stack a, int	*len, int *parrent);

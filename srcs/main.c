@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:30:12 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/16 19:47:53 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/17 07:34:23 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main(int  arc, char **arv)
 	
 	print_stack(a, b);
 	ft_printf("\n");
-	replace_value_on_stack(a, b);
+	replace_value_in_stack(&a, &b);
 	ft_printf("\n");
 	print_stack(a, b);
 	
