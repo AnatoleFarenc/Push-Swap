@@ -18,7 +18,7 @@ The aim of this project is to sort in ascending order one continued list numbers
 - **rrr :** rra and rrb at the same time.
 
 ### Demo
-![visualizer](github-video/demo.gif)
+![visualizer](.github-video/demo.gif)
 
 ## Instruction
 
