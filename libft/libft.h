@@ -6,16 +6,16 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:46:22 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/11 11:08:25 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/18 09:45:24 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <limits.h>
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
-# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
@@ -48,7 +48,7 @@ int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
-long					ft_atoi(const char *nptr);
+long				ft_atoi(const char *nptr);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_strdup(const char *s);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
@@ -63,8 +63,7 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
-
-//linked list
+// linked list
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *lst);
@@ -76,16 +75,16 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-//printf
-int	ft_printf(const char *str, ...);
-int	ft_print_char(char c);
-int	ft_print_string(char *str);
-int	ft_print_dec_to_hex(unsigned long long int nb, int is_up);
-int	ft_print_addr(unsigned long long int nb);
-int	ft_print_dec(long int n);
+// printf
+int					ft_printf(const char *str, ...);
+int					ft_print_char(char c);
+int					ft_print_string(char *str);
+int					ft_print_dec_to_hex(unsigned long long int nb, int is_up);
+int					ft_print_addr(unsigned long long int nb);
+int					ft_print_dec(long int n);
 
-//gnl
-char	*get_next_line(int fd);
-char	*ft_strjoin_gnl(char *s1, char *s2);
+// gnl
+char				*get_next_line(int fd);
+char				*ft_strjoin_gnl(char *s1, char *s2);
 
 #endif

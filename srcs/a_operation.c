@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:33:47 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/10 15:28:14 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/18 09:47:44 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*sa(t_stack *a)
 	push_on_stack(a, value_2);
 	return ("sa");
 }
+
 char	*pa(t_stack *a, t_stack *b)
 {
 	int	value_b;
@@ -62,8 +63,8 @@ char	*ra(t_stack *a)
 char	*rra(t_stack *a)
 {
 	t_stack	tmp;
-	int	last_value;
-	int	value;
+	int		last_value;
+	int		value;
 
 	initialize_stack(&tmp, a->len);
 	while (!stack_is_empty(a))

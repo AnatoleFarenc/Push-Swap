@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:33:47 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/10 15:30:16 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/18 09:46:24 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*sb(t_stack *b)
 	push_on_stack(b, value_2);
 	return ("sb");
 }
+
 char	*pb(t_stack *b, t_stack *a)
 {
 	int	value_a;
@@ -56,14 +57,14 @@ char	*rb(t_stack *b)
 		push_on_stack(b, value);
 	}
 	free(tmp.array);
-	return("rb");
+	return ("rb");
 }
 
 char	*rrb(t_stack *b)
 {
 	t_stack	tmp;
-	int	last_value;
-	int	value;
+	int		last_value;
+	int		value;
 
 	initialize_stack(&tmp, b->len);
 	while (!stack_is_empty(b))

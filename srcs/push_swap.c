@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:53:27 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/17 17:26:22 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/18 11:16:19 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	check_lis(int nb, int *lis_arr, int len_lis)
 {
 	int	i;
+
 	i = -1;
 	while (++i < len_lis)
 	{
@@ -46,25 +47,26 @@ void	sort_a_stack(t_stack *a, t_stack *b)
 
 void	min_to_top(t_stack *a)
 {
-	int	index_min;
-	int min;
-	int	i;
-	t_movement mov_a;
+	int			index_min;
+	int			min;
+	int			i;
+	t_movement	mov_a;
 
 	i = -1;
 	min = a->array[0];
-	while (++i <=a->top)
+	while (++i <= a->top)
 	{
 		if (min > a->array[i])
 			index_min = i;
 	}
+	min = calc_min(*a);
 	mov_a = cost_a(*a, index_min);
 	i = -1;
-	while (++i < mov_a.nb_ite)
+	while (a->array[a->top] != min)
 	{
 		if (mov_a.mov == RA)
 			ft_printf("%s\n", ra(a));
 		if (mov_a.mov == RRA)
 			ft_printf("%s\n", rra(a));
-	}	
+	}
 }
