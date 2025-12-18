@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:25:06 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 15:45:27 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:25:07 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,28 @@
 
 void	play_operation(t_stack *a, t_stack *b, char *operation)
 {
-		if (ft_strncmp(operation, "sa\n", 3))
-			sa(a);
-		else if (ft_strncmp(operation, "sb\n", 3))
-			sb(b);
-		else if (ft_strncmp(operation, "ss\n", 3))
-			ss(a, b);
-		else if (ft_strncmp(operation, "pa\n", 3))
-			pa(a, b);
-		else if (ft_strncmp(operation, "pb\n", 3))
-			pb(b, a);
-		else if (ft_strncmp(operation, "ra\n", 3))
-			ra(a);
-		else if (ft_strncmp(operation, "rb\n", 3))
-			rb(b);
-		else if (ft_strncmp(operation, "rr\n", 3))
-			rr(a, b);
-		else if (ft_strncmp(operation, "rra\n", 3))
-			rra(a);
-		else if (ft_strncmp(operation, "rrb\n", 3))
-			rrb(b);
-		else if (ft_strncmp(operation, "rrr\n", 3))
-			rrr(a, b);
+	if (!ft_strncmp(operation, "sa\n", 3))
+		sa(a);
+	else if (!ft_strncmp(operation, "sb\n", 3))
+		sb(b);
+	else if (!ft_strncmp(operation, "ss\n", 3))
+		ss(a, b);
+	else if (!ft_strncmp(operation, "pa\n", 3))
+		pa(a, b);
+	else if (!ft_strncmp(operation, "pb\n", 3))
+		pb(b, a);
+	else if (!ft_strncmp(operation, "ra\n", 3))
+		ra(a);
+	else if (!ft_strncmp(operation, "rb\n", 3))
+		rb(b);
+	else if (!ft_strncmp(operation, "rr\n", 3))
+		rr(a, b);
+	else if (!ft_strncmp(operation, "rra\n", 3))
+		rra(a);
+	else if (!ft_strncmp(operation, "rrb\n", 3))
+		rrb(b);
+	else if (!ft_strncmp(operation, "rrr\n", 3))
+		rrr(a, b);
 }
 
 int	check_value(t_stack *a, t_stack *b)
@@ -52,10 +52,10 @@ int	check_value(t_stack *a, t_stack *b)
 	}
 	free(operation);
 	i = -1;
-	while (++i <= a->top)
+	while (++i < a->top)
 	{
-		if (a->array[i] > a->array[i+1])
-			return (0);		
+		if (a->array[i] < a->array[i + 1])
+			return (0);
 	}
 	if (!stack_is_empty(b))
 		return (0);
@@ -71,10 +71,7 @@ int	main(int arc, char **arv)
 	int		len;
 
 	if (arc < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
 		return (EXIT_FAILURE);
-	}
 	len = arc - 1;
 	values = parse_params(&arv[1], &len);
 	initialize_stack(&a, len);
@@ -83,9 +80,9 @@ int	main(int arc, char **arv)
 	while (i--)
 		push_on_stack(&a, values[i]);
 	if (check_value(&a, &b))
-		ft_printf("ok\n");
+		ft_printf("OK\n");
 	else
-		ft_printf("ko\n");
+		ft_printf("KO\n");
 	free(a.array);
 	free(b.array);
 	free(values);
