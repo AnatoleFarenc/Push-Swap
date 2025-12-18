@@ -17,6 +17,9 @@ The aim of this project is to sort in ascending order one continued list numbers
 - **rrb :** Shift down all elements of stack b by 1.The last element becomes the first one.
 - **rrr :** rra and rrb at the same time.
 
+### Demo
+[visualizer](github-video/demo.webm)
+
 ## Instruction
 
 ### Compilation
