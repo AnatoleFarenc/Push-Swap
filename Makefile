@@ -43,7 +43,7 @@ clean:
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(BONUS)
 	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
