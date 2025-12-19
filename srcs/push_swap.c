@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:53:27 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 11:16:19 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:54:00 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	min_to_top(t_stack *a)
 	t_movement	mov_a;
 
 	i = -1;
+	index_min = 0;
 	min = a->array[0];
 	while (++i <= a->top)
 	{

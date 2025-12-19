@@ -6,13 +6,13 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:25:06 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 17:25:07 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:47:40 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	play_operation(t_stack *a, t_stack *b, char *operation)
+int	play_operation(t_stack *a, t_stack *b, char *operation)
 {
 	if (!ft_strncmp(operation, "sa\n", 3))
 		sa(a);
@@ -36,6 +36,9 @@ void	play_operation(t_stack *a, t_stack *b, char *operation)
 		rrb(b);
 	else if (!ft_strncmp(operation, "rrr\n", 3))
 		rrr(a, b);
+	else
+		return (0);
+	return (1);
 }
 
 int	check_value(t_stack *a, t_stack *b)
@@ -46,7 +49,11 @@ int	check_value(t_stack *a, t_stack *b)
 	operation = get_next_line(0);
 	while (operation)
 	{
-		play_operation(a, b, operation);
+		if (!play_operation(a, b, operation))
+		{
+			free(operation);
+			return (-1);
+		}
 		free(operation);
 		operation = get_next_line(0);
 	}
@@ -79,12 +86,14 @@ int	main(int arc, char **arv)
 	i = len;
 	while (i--)
 		push_on_stack(&a, values[i]);
-	if (check_value(&a, &b))
+	i = check_value(&a, &b);
+	if (i == 1)
 		ft_printf("OK\n");
-	else
+	else if (i == -1)
+		ft_putstr_fd("Error\n", 2);
+	else if (i == 0)
 		ft_printf("KO\n");
 	free(a.array);
 	free(b.array);
-	free(values);
-	return (EXIT_SUCCESS);
+	return (free(values), EXIT_SUCCESS);
 }

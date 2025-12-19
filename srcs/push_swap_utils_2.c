@@ -6,13 +6,27 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 09:55:56 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 11:21:41 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:24:48 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi_push_swap(const char *str, char **str_array, int *arr, int int_max)
+int	ft_check_overflow(int value, char digit, int sign)
+{
+	int	max_digit;
+
+	max_digit = 7;
+	if (sign == -1)
+		max_digit = 8;
+	if (value > INT_MAX / 10)
+		return (0);
+	if (value == INT_MAX / 10 && (digit - '0') > max_digit)
+		return (0);
+	return (1);
+}
+
+int	ft_atoi_push_swap(const char *str, char **str_array, int *arr)
 {
 	int	i;
 	int	sign;
@@ -26,14 +40,11 @@ int	ft_atoi_push_swap(const char *str, char **str_array, int *arr, int int_max)
 	if ((str[i] == '-') || (str[i] == '+'))
 	{
 		if (str[i++] == '-')
-		{
 			sign = -sign;
-			int_max++;
-		}
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (res > (int_max - (str[i] - '0')) / 10)
+		if (!ft_check_overflow(res, str[i], sign))
 			exit_error(str_array, arr);
 		res = res * 10 + (str[i++] - '0');
 	}

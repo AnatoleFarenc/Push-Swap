@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:34:24 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 19:19:44 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:25:05 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ void		print_stack(t_stack a, t_stack b);
 size_t		ft_str_array_len(char **str_array);
 void		free_arrays(char **arrays);
 void		exit_error(char **str_array, int *arr);
-int			ft_atoi_push_swap(const char *str, char **str_array, int *arr,
-				int int_max);
+int			ft_atoi_push_swap(const char *str, char **str_array, int *arr);
 int			*ft_copy_int_array(int *dest, int *src, int len);
 int			ft_abs(int nb);
 int			calc_min(t_stack stack);

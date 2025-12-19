@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:24:30 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 09:58:14 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:25:36 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	*convert_num(char **params)
 	arr = malloc(sizeof(int) * len);
 	i = -1;
 	while (params[++i])
-		arr[i] = ft_atoi_push_swap(params[i], params, arr, INT_MAX);
+		arr[i] = ft_atoi_push_swap(params[i], params, arr);
 	return (arr);
 }
 
