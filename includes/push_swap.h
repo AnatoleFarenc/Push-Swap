@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:34:24 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/19 11:25:05 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:08:39 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int			*set_lis(t_stack a, int *big_len);
 
 // push swap
 void		sort_a_stack(t_stack *a, t_stack *b);
+int			special_case(t_stack *a, t_stack *b);
 
 #endif

@@ -6,24 +6,11 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:30:12 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/19 16:28:15 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/22 11:40:46 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check_if_sort(t_stack a)
-{
-	int	i;
-
-	i = -1;
-	while (++i < a.top)
-	{
-		if (a.array[i] < a.array[i + 1])
-			return (0);
-	}
-	return (1);
-}
 
 int	main(int arc, char **arv)
 {
@@ -45,7 +32,7 @@ int	main(int arc, char **arv)
 	i = len;
 	while (i--)
 		push_on_stack(&a, values[i]);
-	if (check_if_sort(a))
+	if (special_case(&a, &b))
 		return (free(a.array), free(b.array), free(values), EXIT_SUCCESS);
 	sort_a_stack(&a, &b);
 	replace_value_in_stack(&a, &b);

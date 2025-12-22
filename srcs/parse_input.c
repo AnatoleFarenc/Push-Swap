@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:24:30 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/19 11:25:36 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/22 12:34:24 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,11 @@ int	check_str_is_valide(char *str)
 		i++;
 	if ((str[i] == '-') || (str[i] == '+'))
 		i++;
-	while (str[++i])
+	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			return (0);
+		i++;
 	}
 	return (1);
 }
