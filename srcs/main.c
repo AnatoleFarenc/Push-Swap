@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:30:12 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/22 11:40:46 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:17:05 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ int	main(int arc, char **arv)
 	int		len;
 
 	if (arc < 2)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (EXIT_FAILURE);
-	}
+		exit(EXIT_FAILURE);
 	len = arc - 1;
 	values = parse_params(&arv[1], &len);
 	initialize_stack(&a, len);

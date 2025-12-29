@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 15:25:06 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/19 11:47:40 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:15:15 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	play_operation(t_stack *a, t_stack *b, char *operation)
 		rb(b);
 	else if (!ft_strncmp(operation, "rr\n", 3))
 		rr(a, b);
-	else if (!ft_strncmp(operation, "rra\n", 3))
+	else if (!ft_strncmp(operation, "rra\n", 4))
 		rra(a);
-	else if (!ft_strncmp(operation, "rrb\n", 3))
+	else if (!ft_strncmp(operation, "rrb\n", 4))
 		rrb(b);
-	else if (!ft_strncmp(operation, "rrr\n", 3))
+	else if (!ft_strncmp(operation, "rrr\n", 4))
 		rrr(a, b);
 	else
 		return (0);

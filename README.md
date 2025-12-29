@@ -1,4 +1,4 @@
-#### This project has been created as part of the 42 curriculum by anfarenc
+*This project has been created as part of the 42 curriculum by anfarenc*
 
 # PUSH_SWAP
 
@@ -34,3 +34,5 @@ The aim of this project is to sort in ascending order one continued list numbers
 ## Resources
 - [Wikepedia Longest increasing subsequence](https://en.wikipedia.org/wiki/Longest_increasing_subsequence) <br>
 - [Stack in C](https://www.geeksforgeeks.org/c/implement-stack-in-c/)
+### AI
+    I didn't use AI

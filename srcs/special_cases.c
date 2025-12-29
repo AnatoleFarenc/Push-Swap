@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 11:04:46 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/22 12:21:58 by anfarenc         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:22:34 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,11 @@ void	three_sort_stack(t_stack *a)
 
 void	five_sort_stack(t_stack *a, t_stack *b)
 {
-	ft_printf("%s\n%s\n", pb(b, a), pb(b, a));
+	while (a->top >= 3)
+		ft_printf("%s\n", pb(b, a));
 	three_sort_stack(a);
 	replace_value_in_stack(a, b);
+	min_to_top(a);
 }
 
 int	special_case(t_stack *a, t_stack *b)
@@ -62,7 +64,7 @@ int	special_case(t_stack *a, t_stack *b)
 		three_sort_stack(a);
 		return (1);
 	}
-	if (a->len == 5)
+	if (a->len == 5 || a->len == 4)
 	{
 		five_sort_stack(a, b);
 		return (1);
