@@ -6,7 +6,7 @@
 /*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:33:47 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/18 09:47:44 by anfarenc         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:06:13 by anfarenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*pa(t_stack *a, t_stack *b)
 		return ("pa");
 	pop_on_stack(b, &value_b);
 	push_on_stack(a, value_b);
-	return ("pa");
+	return ("pa")
 }
 
 char	*ra(t_stack *a)
