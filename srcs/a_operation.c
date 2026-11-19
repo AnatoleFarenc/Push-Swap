@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   a_operation.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 12:33:47 by anfarenc          #+#    #+#             */
-/*   Updated: 2026/01/12 16:06:13 by anfarenc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 char	*sa(t_stack *a)
@@ -34,7 +22,7 @@ char	*pa(t_stack *a, t_stack *b)
 		return ("pa");
 	pop_on_stack(b, &value_b);
 	push_on_stack(a, value_b);
-	return ("pa")
+	return ("pa");
 }
 
 char	*ra(t_stack *a)

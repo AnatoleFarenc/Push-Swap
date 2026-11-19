@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   special_cases.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: anfarenc <anfarenc@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 11:04:46 by anfarenc          #+#    #+#             */
-/*   Updated: 2025/12/28 16:22:34 by anfarenc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 int	check_if_sort(t_stack a)
@@ -37,11 +25,17 @@ void	three_sort_stack(t_stack *a)
 	if (top > mid && top < bot)
 		ft_printf("%s\n", sa(a));
 	else if (top > mid && mid > bot)
-		ft_printf("%s\n%s\n", sa(a), rra(a));
+	{
+		ft_printf("%s\n", sa(a));
+		ft_printf("%s\n", rra(a));
+	}
 	else if (top > mid && mid < bot && top > bot)
 		ft_printf("%s\n", ra(a));
 	else if (top < mid && mid > bot && bot > top)
-		ft_printf("%s\n%s\n", sa(a), ra(a));
+	{
+		ft_printf("%s\n", sa(a));
+		ft_printf("%s\n", ra(a));
+	}
 	else if (top < mid && top > bot && mid > bot)
 		ft_printf("%s\n", rra(a));
 }
