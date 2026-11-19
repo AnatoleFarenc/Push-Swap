@@ -1,5 +1,3 @@
-*Created by anfarenc*
-
 # PUSH_SWAP
 
 ## Description
